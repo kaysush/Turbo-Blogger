@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>#{posts.title}</title>
+        <link href='http://fonts.googleapis.com/css?family=Bubbler+One' rel='stylesheet' type='text/css'></link>
+        <h:outputStylesheet library="default" name="turbo.css"/>
+    </h:head>
+    <h:body>
+        <ui:repeat var="p" value="#{posts.postList}">
+            <h:panelGroup id="turbo-post" layout="block" > 
+                <h:outputLink value="#{p.permalink}" title="Permalink to #{p.title}">
+                    <h:outputText value="#{p.title}"/>
+                </h:outputLink><br></br><br></br>
+                <h:outputText id="date" value="#{p.postDate}" /><br></br><br></br>
+                <h:outputText escape="false" value="${p.body}" style="font-size: 20px;" />
+                <hr></hr>
+            </h:panelGroup> 
+        </ui:repeat>
+
+    </h:body>
+</html>
+

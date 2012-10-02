@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Installer-Turbo Blogger</title>
+        <link href='http://fonts.googleapis.com/css?family=Bubbler+One' rel='stylesheet' type='text/css'></link>
+        <h:outputStylesheet library="bootstrap" name="theme.css"/>
+        <h:outputStylesheet library="default" name="turbo.css"/>
+    </h:head>
+    <h:body>
+        <h1>Turbo Blogger Database Configuration</h1>
+        <p:ajaxStatus style="width:16px;height:16px;">
+            <f:facet name="start">
+                <h:graphicImage value="images/ajaxloading.gif" />
+            </f:facet>
+
+            <f:facet name="complete">
+                <h:outputText value="" />
+            </f:facet>
+        </p:ajaxStatus>
+        <h:form>
+            <p:panel style="width:400px" header="Enter your DB details" >
+                <p:messages id="status" />
+                <h:panelGrid columns="2" cellpadding="5px" >
+                    <p:outputLabel for="dbHost" value="Host"/>
+                    <p:inputText required="true" id="dbHost" value="#{installer.dbHost}" />
+                    <p:outputLabel for="dbUsername" value="MySQL Username"/>
+                    <p:inputText required="true" id="dbUsername" value="#{installer.dbUsername}" />
+                    <p:outputLabel for="dbPassword" value="MySQL Password"/>
+                    <p:password required="true" id="dbPassword" value="#{installer.dbPassword}" feedback="false" />
+                    <p:outputLabel  for="dbName" value="MySQL Database"/>
+                    <p:inputText required="true" id="dbName" value="#{installer.dbName}" />
+                    <p:commandButton update="status" process="@all" value="Submit" actionListener="#{installer.installDB}"/>
+                    <p:commandButton type="reset" value="Reset"/>
+                </h:panelGrid>
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>
+

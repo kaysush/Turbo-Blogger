@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<credentials>
-<host>your DB host</host>
-<username>your DB username</username>
-<password>your DB password</password>
-<database>your DB name</database>
-</credentials>

@@ -1,4 +1,4 @@
 Turbo Blogger
 =============
 
-Project abondoned . Will start a fresh soon.
+Project abandoned . Will start a fresh soon.
